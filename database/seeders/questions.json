@@ -1,0 +1,125 @@
+[
+    {
+        "question": "Quantité annuelle de CO₂ émise par l’entreprise (en tonnes)",
+        "score": "",
+        "level": "free",
+        "order": 1,
+        "group_id": 1,
+        "sequence": "Q1",
+        "answers" : [
+            {
+                "answer": "Moins de 100 tonnes (5 points)",
+                "score": 5,
+                "order": 1,
+                "sequence": "A",
+                "question_id": 1
+            },{
+                "answer": "Entre 100 et 500 tonnes",
+                "score": 4,
+                "order": 2,
+                "sequence": "B",
+                "question_id": 1
+            },{
+                "answer": "Entre 500 et 1 000 tonnes",
+                "score": 3,
+                "order": 3,
+                "sequence": "C",
+                "question_id": 1
+            },{
+                "answer": "Entre 1 000 et 5 000 tonnes",
+                "score": 2,
+                "order": 4,
+                "sequence": "D",
+                "question_id": 1
+            },{
+                "answer": "Plus de 5 000 tonnes",
+                "score": 1,
+                "order": 5,
+                "sequence": "E",
+                "question_id": 1
+            }
+        ]
+    },
+    {
+        "question": "Consommation énergétique annuelle (en kWh)",
+        "score": "",
+        "level": "free",
+        "order": 2,
+        "group_id": 1,
+        "sequence": "Q2",
+        "answers" : [
+            {
+                "answer": "Moins de 500 000 kWh",
+                "score": 5,
+                "order": 1,
+                "sequence": "A",
+                "question_id": 2
+            },{
+                "answer": "Entre 500 000 et 1 000 000 kWh",
+                "score": 4,
+                "order": 2,
+                "sequence": "B",
+                "question_id": 2
+            },{
+                "answer": "Entre 1 000 000 et 2 000 000 kWh",
+                "score": 3,
+                "order": 3,
+                "sequence": "C",
+                "question_id": 2
+            },{
+                "answer": "Entre 2 000 000 et 5 000 000 kWh",
+                "score": 2,
+                "order": 4,
+                "sequence": "D",
+                "question_id": 2
+            },{
+                "answer": "Plus de 5 000 000 kWh",
+                "score": 1,
+                "order": 5,
+                "sequence": "E",
+                "question_id": 2
+            }
+        ]
+    },
+    {
+        "question": "Pourcentage d’énergie renouvelable dans la consommation totale",
+        "score": "",
+        "level": "free",
+        "order": 3,
+        "group_id": 1,
+        "sequence": "Q3",
+        "answers" : [
+            {
+                "answer": "Moins de 10 %",
+                "score": 1,
+                "order": 1,
+                "sequence": "A",
+                "question_id": 3
+            },{
+                "answer": "Entre 10 % et 25 %",
+                "score": 2,
+                "order": 2,
+                "sequence": "B",
+                "question_id": 3
+            },{
+                "answer": "Entre 25 % et 50 %",
+                "score": 3,
+                "order": 3,
+                "sequence": "C",
+                "question_id": 3
+            },{
+                "answer": "Entre 50 % et 75 %",
+                "score": 4,
+                "order": 4,
+                "sequence": "D",
+                "question_id": 3
+            },{
+                "answer": "Plus de 75 %",
+                "score": 5,
+                "order": 5,
+                "sequence": "E",
+                "question_id": 3
+            }
+        ]
+    }
+]

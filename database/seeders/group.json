@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Environnement",
+        "level" : "free",
+        "order" : 1
+    },
+    {
+        "title": "Gouvernance",
+        "level" : "free",
+        "order" : 2
+    },
+    {
+        "title": "Social",
+        "level" : "free",
+        "order" : 3
+    },
+    {
+        "title": "Financier",
+        "level" : "free",
+        "order" : 4
+    },
+    {
+        "title": "Entreprise",
+        "level" : "free",
+        "order" : 5
+    }
+]

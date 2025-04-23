@@ -1,0 +1,375 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Abys OpenApi Documentation",
+        "description": "Abys Swagger OpenApi description",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/login-link": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Get one time Login link",
+                "description": "Send an email to user with the login link that will expire in 1 hour",
+                "operationId": "945b69e8f1bb7690dfe3d16940423cca",
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Accept",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Request body format",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "required": [
+                                    "email"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "test@domain.com"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/auth/login/{token}": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Login user user by link and provide Access token",
+                "description": "Send an email to user with the login link that will expire in 1 hour",
+                "operationId": "ea3e01cd10e510a34ed22a280d42b653",
+                "parameters": [
+                    {
+                        "name": "token",
+                        "in": "path",
+                        "description": "One time token in link",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Accept",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Request body format",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/api/questions/": {
+            "get": {
+                "tags": [
+                    "Questions"
+                ],
+                "summary": "Get the list of possible questions with their answers",
+                "description": "Returns an array of questions with answers",
+                "operationId": "getQuestionsList",
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Accept",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Request body format",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Question"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/api/questions/{question_uuid}": {
+            "get": {
+                "tags": [
+                    "Questions"
+                ],
+                "summary": " Get the single quations with its's answers",
+                "description": "Returns array",
+                "operationId": "Question item",
+                "parameters": [
+                    {
+                        "name": "question_uuid",
+                        "in": "path",
+                        "description": "Question UUId",
+                        "schema": {
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    {
+                        "name": "Authorization: Bearer",
+                        "in": "header",
+                        "description": "Authorization: Bearer",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Accept",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    },
+                    {
+                        "name": "Content-Type",
+                        "in": "header",
+                        "description": "Request body format",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "default": "application/json"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Question"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Answer": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "uuid": {
+                        "type": "string",
+                        "example": "YHZdF9ZffJF2mjf2"
+                    },
+                    "answer": {
+                        "type": "string",
+                        "example": "Moins de 100 tonnes (5 points)"
+                    },
+                    "score": {
+                        "type": "integer",
+                        "example": "5"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "sequence": {
+                        "type": "string",
+                        "example": "A"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-02-02"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-02-02"
+                    }
+                },
+                "type": "object"
+            },
+            "Question": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "uuid": {
+                        "type": "string",
+                        "example": "YHZdF9ZffJF2mjf2"
+                    },
+                    "question": {
+                        "type": "string",
+                        "example": "Quantité annuelle de CO₂ émise par l’entreprise (en tonnes)"
+                    },
+                    "level": {
+                        "type": "string",
+                        "example": "free"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "group": {
+                        "$ref": "#/components/schemas/QuestionGroup"
+                    },
+                    "sequence": {
+                        "type": "string",
+                        "example": "Q1"
+                    },
+                    "answers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Answer"
+                        }
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-02-02"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-02-02"
+                    }
+                },
+                "type": "object"
+            },
+            "QuestionGroup": {
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Environnement"
+                    },
+                    "level": {
+                        "type": "string",
+                        "example": "free"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-02-02"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2024-02-02"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "Questions",
+            "description": "Questions"
+        }
+    ]
+}
