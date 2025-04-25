@@ -15,6 +15,46 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
+    /**
+     * @OA\Post(
+     *     path="/api/auth/register",
+     *     tags={"Auth"},
+     *     summary="Register new User",
+     *     description="Register new user",
+     *     @OA\RequestBody(
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/x-www-form-urlencoded",
+     *             @OA\Schema(
+     *                 required={"email"},
+     *                 @OA\Property(
+     *                     property="email",
+     *                     type="string",
+     *                     example="test@domain.com"
+     *                 )
+     *             )
+     *         )
+     *     ),
+     *      @OA\Parameter(
+     *         name="Accept",
+     *         in="header",
+     *         description="Accept",
+     *         required=true,
+     *         @OA\Schema(type="string", default="application/json")
+     *      ),
+     *      @OA\Parameter(
+     *         name="Content-Type",
+     *         in="header",
+     *         description="Request body format",
+     *         required=true,
+     *        @OA\Schema(type="string", default="application/json")
+     *      ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation"
+     *     )
+     * )
+     */
     public function registerByEmail(Request $request)
     {
         $request->validate([
@@ -24,10 +64,7 @@ class UserController extends Controller
         $email = strtolower(trim($request->email));
         $user = $this->userService->createUser($email);
 
-        return response()->json([
-            'status' => 'ok',
-            'user' => $user
-        ]);
+        return response()->json($user);
     }
 
 }
