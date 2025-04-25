@@ -38,8 +38,4 @@ class Question extends Model
         return $this->hasOne(QuestionGroup::class, 'id', 'group_id');
     }
 
-    public function questionAnswers()
-    {
-        return $this->belongsToMany(Answer::class, 'question_answers', 'question_id', 'answer_id');
-    }
 }

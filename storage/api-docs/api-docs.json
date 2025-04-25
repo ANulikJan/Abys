@@ -238,6 +238,83 @@
                     }
                 }
             }
+        },
+        "/api/questions/{question_uuid}/answer": {
+            "post": {
+                "tags": [
+                    "Questions"
+                ],
+                "summary": "Send request to answer the question",
+                "description": "Returns message",
+                "operationId": "Answer to question",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "answer_uuid",
+                                    "files"
+                                ],
+                                "properties": {
+                                    "answer_uuid": {
+                                        "type": "string",
+                                        "example": ""
+                                    },
+                                    "files": {
+                                        "type": "file",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "true"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "description": "success",
+                                            "format": "boolean",
+                                            "default": "false"
+                                        },
+                                        "error": {
+                                            "description": "error",
+                                            "format": "string",
+                                            "default": "Something went wrong. Please try again."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {

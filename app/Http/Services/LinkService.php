@@ -36,6 +36,8 @@ class LinkService
             $message->to($email)
                 ->subject('Your Magic Login Link');
         });
+
+        return $token;
     }
 
     public function checkUser($email)

@@ -74,8 +74,8 @@ class MagicLinkController extends Controller
 
     public function sendLink(Request $request)
     {
-        $this->linkService->generateLoginLink($request);
-        return response()->json(['message' => 'Magic link sent.']);
+        $code = $this->linkService->generateLoginLink($request);
+        return response()->json(['message' => 'Magic link sent.', 'token' => $code]);
     }
 
     /**

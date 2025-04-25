@@ -13,19 +13,20 @@ return new class extends Migration
     {
         Schema::create('question_answers', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('question_id')->unsigned();
-            $table->bigInteger('answer_id')->unsigned();
+            $table->string('question_uuid');
+            $table->string('answer_uuid');
             $table->bigInteger('user_id')->unsigned();
-            $table->string('file')->nullable();
-            $table->timestamps();
+            $table->text('files')->nullable();
+            $table->timestamp('created_at')->useCurrent()->nullable();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate()->nullable();
 
-            $table->foreign('question_id')
-                ->references('id')
+            $table->foreign('question_uuid')
+                ->references('uuid')
                 ->on('questions')
                 ->onDelete('cascade');
 
-            $table->foreign('answer_id')
-                ->references('id')
+            $table->foreign('answer_uuid')
+                ->references('uuid')
                 ->on('answers')
                 ->onDelete('cascade');
 
