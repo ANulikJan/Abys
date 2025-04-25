@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "fc81e4cc-0cad-4479-8a5a-defaa8690b39",
+		"name": "Abys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2171732"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "anna@bvcs.fr",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/register",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login link",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "anna@bvcs.fr",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/login-link",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login-link"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "anna@bvcs.fr",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/auth/login/d4ec3e40-a36c-4e9b-9eeb-056852061e7d",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login",
+						"d4ec3e40-a36c-4e9b-9eeb-056852061e7d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Questions List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/questions",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"questions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Answers list",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/questions/answers",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Answers list To Question",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/questions/YHZdF9ZffJF2mjf2/answers",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"YHZdF9ZffJF2mjf2",
+						"answers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Questions item",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{host}}/api/questions/OaRXYeWgifnpMrth",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"OaRXYeWgifnpMrth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Answer to question or update answer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files[]",
+							"type": "file",
+							"src": "/Users/anna/Downloads/uploads_JSC Kalma - Api documentation (1).pdf"
+						},
+						{
+							"key": "answer_uuid",
+							"value": "ZzUJDqYnd3M1HfU8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/api/questions/OaRXYeWgifnpMrth/answer",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"questions",
+						"OaRXYeWgifnpMrth",
+						"answer"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
